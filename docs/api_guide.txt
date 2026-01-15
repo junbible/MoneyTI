@@ -1,0 +1,1225 @@
+
+
+
+
+
+공공데이터 오픈API 활용가이드
+금융위원회_증권상품시세정보
+
+
+
+
+
+
+
+
+
+
+
+
+목 차
+
+목 차
+1. 서비스 명세	3
+1.1 금융위원회_증권상품시세정보	3
+가. API 서비스 개요	3
+나. 상세기능 목록	4
+다. 상세기능내역	4
+1) ETF시세 상세기능명세	4
+2) ETN시세 상세기능명세	10
+3) ELW시세 상세기능명세	17
+2. OpenAPI 에러 코드정리	22
+
+
+1. 서비스 명세
+1.1 금융위원회_증권상품시세정보
+가. API 서비스 개요
+API 서비스 정보
+API명(영문)
+GetSecuritiesProductInfoService
+
+API명(국문)
+금융위원회_증권상품시세정보
+
+API 설명
+한국거래소에서 제공하는 증권 상품의 시세 정보로, ETF 종목별 시세, ETN 종목별 시세, ELW 종목별 시세 대한 오퍼레이션을 제공한다.
+API 서비스
+보안적용
+기술 수준
+서비스 인증/권한
+[O] serviceKey    [ ] 인증서 (GPKI/NPKI)
+[ ] Basic (ID/PW)  [ ] 없음
+
+메시지 레벨
+암호화
+[ ] 전자서명   [ ] 암호화   [O] 없음
+
+전송 레벨 암호화
+[O] SSL   [ ] 없음
+
+인터페이스 표준
+[ ] SOAP 1.2
+(RPC-Encoded, Document Literal, Document Literal Wrapped)
+[O] REST (GET)
+[ ] RSS 1.0   [ ] RSS 2.0   [ ] Atom 1.0   [ ] 기타
+
+교환 데이터 표준
+(중복선택가능)
+[O] XML   [O] JSON   [ ] MIME   [ ] MTOM
+API 서비스
+배포정보
+서비스 URL
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService
+
+서비스 명세 URL
+(WSDL 또는 WADL)
+N/A
+
+서비스 버전
+1.0
+
+서비스 시작일
+2021-11-16
+서비스 배포일
+2021-11-16
+
+서비스 이력
+2021-11-16 : 서비스 시작
+
+메시지 교환유형
+[O] Request-Response   [ ] Publish-Subscribe
+[ ] Fire-and-Forgot   [ ] Notification
+
+서비스 제공자
+
+
+데이터 갱신주기
+일 1회
+
+나. 상세기능 목록
+번호
+API명(국문)
+상세기능명(영문)
+상세기능명(국문)
+1
+금융위원회_증권상품시세정보
+getETFPriceInfo
+ETF시세
+2
+금융위원회_증권상품시세정보
+getETNPriceInfo
+ETN시세
+3
+금융위원회_증권상품시세정보
+getELWPriceInfo
+ELW시세
+
+다. 상세기능내역
+1) ETF시세 상세기능명세
+a) 상세기능정보
+상세기능 번호
+1
+상세기능 유형
+조회 (목록)
+상세기능명(국문)
+ETF시세
+상세기능 설명
+한국거래소에서 제공하는 증권상품의 시세 정보 ETF 종목별 시세, ETN 종목별 시세, ELW 종목별 시세 대한 오퍼레이션을 제공한다.
+Call Back URL
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getETFPriceInfo
+최대 메시지 사이즈
+[4000] byte
+평균 응답 시간
+[500] ms
+초당 최대 트랙잭션
+[30] tps
+b) 요청 메시지 명세 
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+serviceKey
+서비스키
+400
+1
+공공데이터포털에서 받은 인증키
+공공데이터포털에서 받은 인증키
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+resultType
+결과형식
+4
+1
+xml
+구분(xml, json) Default: xml
+basDt
+기준일자
+4
+0
+20220919
+검색값과 기준일자가 일치하는 데이터를 검색
+beginBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 크거나 같은 데이터를 검색
+endBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 작은 데이터를 검색
+likeBasDt
+기준일자
+8
+0
+20220919
+기준일자값이 검색값을 포함하는 데이터를 검색
+likeSrtnCd
+단축코드
+8
+0
+069500
+단축코드가 검색값을 포함하는 데이터를 검색
+isinCd
+ISIN코드
+12
+0
+KR7069500007
+검색값과 ISIN코드이 일치하는 데이터를 검색
+likeIsinCd
+ISIN코드
+12
+0
+KR7069500007
+ISIN코드가 검색값을 포함하는 데이터를 검색
+itmsNm
+종목명
+120
+0
+KODEX 200
+검색값과 종목명이 일치하는 데이터를 검색
+likeItmsNm
+종목명
+120
+0
+KODEX 200
+종목명이 검색값을 포함하는 데이터를 검색
+beginVs
+대비
+10
+0
+-220
+대비가 검색값보다 크거나 같은 데이터를 검색
+endVs
+대비
+10
+0
+-220
+대비가 검색값보다 작은 데이터를 검색
+beginFltRt
+등락률
+11
+0
+-.71
+등락률이 검색값보다 크거나 같은 데이터를 검색
+endFltRt
+등락률
+11
+0
+-.71
+등락률이 검색값보다 작은 데이터를 검색
+beginNav
+순자산가치 (NAV)
+21
+0
+30744.15
+NAV가 검색값보다 크거나 같은 데이터를 검색
+endNav
+순자산가치 (NAV)
+21
+0
+30744.15
+NAV가 검색값보다 작은 데이터를 검색
+beginTrqu
+거래량
+12
+0
+6177702
+거래량이 검색값보다 크거나 같은 데이터를 검색
+endTrqu
+거래량
+12
+0
+6177702
+거래량이 검색값보다 작은 데이터를 검색
+beginTrPrc
+거래대금
+21
+0
+189975383740
+거래대금이 검색값보다 크거나 같은 데이터를 검색
+endTrPrc
+거래대금
+21
+0
+189975383740
+거래대금이 검색값보다 작은 데이터를 검색
+beginMrktTotAmt
+시가총액
+21
+0
+5134273813526
+시가총액이 검색값보다 크거나 같은 데이터를 검색
+endMrktTotAmt
+시가총액
+21
+0
+5134273813526
+시가총액이 검색값보다 작은 데이터를 검색
+bssIdxIdxNm
+기초지수_지수명
+240
+0
+코스피 200
+검색값과 기초지수_
+지수명이 일치하는 데이터를 검색
+likeBssIdxIdxNm
+기초지수_지수명
+240
+0
+코스피 200
+기초지수_지수명이 검색값을 포함하는 데이터를 검색
+※ 항목구분 : 필수(1), 옵션(0) 
+c) 응답 메시지 명세
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+resultCode
+결과코드
+2
+1
+00
+API 호출 결과의 상태 코드
+resultMsg
+결과메시지
+50
+1
+NORMAL SERVICE.
+API 호출 결과의 상태
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+totalCount
+전체 결과 수
+10
+1
+333251
+전체 결과 수
+fltRt
+등락률
+11
+0
+-.71
+전일 대비 등락에 따른 비율
+nav
+순자산가치 (NAV)
+21
+0
+30744.15
+순자산총액 / 상장좌수
+mkp
+시가
+12
+0
+30950
+정규시장의 매매시간 개시 후 형성되는 최초가격
+hipr
+고가
+12
+0
+31010
+하루 중 가격의 최고치
+lopr
+저가
+12
+0
+30600
+하루 중 가격의 최저치
+trqu
+거래량
+12
+0
+6177702
+체결수량의 누적 합계
+trPrc
+거래대금
+21
+0
+189975383740
+거래건 별 체결가격 * 체결수량의 누적 합계
+mrktTotAmt
+시가총액
+21
+0
+5140149000000
+종가 * 상장좌수
+nPptTotAmt
+순자산총액
+21
+0
+5134273813526
+ETF의 순자산총액
+stLstgCnt
+상장좌수
+15
+0
+167650000
+ETF의 상장좌수
+bssIdxIdxNm
+기초지수_지수명
+240
+0
+코스피 200
+ETF의 기초지수의 명칭
+bssIdxClpr
+기초지수_종가
+12
+0
+306.49
+ETF의 기초지수의 종가
+basDt
+기준일자
+8
+0
+20220919
+YYYYMMDD 기준일자
+srtnCd
+단축코드
+9
+0
+069500
+종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
+isinCd
+ISIN코드
+12
+0
+KR7069500007
+국제 채권 식별 번호. 유가증권(채권)의 국제인증 고유번호
+itmsNm
+종목명
+120
+0
+KODEX 200
+유가증권 국제인증 고유번호 코드 이름
+clpr
+종가
+12
+0
+30660
+정규시장의 매매시간종료시까지 형성되는 최종가격
+vs
+대비
+10
+0
+-220
+전일 대비 등락
+※ 항목구분 : 필수(1), 옵션(0)
+d) 요청/응답 메시지 예제
+요청메시지
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getETFPriceInfo?serviceKey=인증키&numOfRows=1&pageNo=1&resultType=xml
+응답메시지
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <header>
+        <resultCode>00</resultCode>
+        <resultMsg>NORMAL SERVICE.</resultMsg>
+    </header>
+    <body>
+        <numOfRows>1</numOfRows>
+        <pageNo>1</pageNo>
+        <totalCount>333251</totalCount>
+        <items>
+            <item>
+                <basDt>20220919</basDt>
+                <srtnCd>069500</srtnCd>
+                <isinCd>KR7069500007</isinCd>
+                <itmsNm>KODEX 200</itmsNm>
+                <clpr>30660</clpr>
+                <vs>-220</vs>
+                <fltRt>-.71</fltRt>
+                <nav>30744.15</nav>
+                <mkp>30950</mkp>
+                <hipr>31010</hipr>
+                <lopr>30600</lopr>
+                <trqu>6177702</trqu>
+                <trPrc>189975383740</trPrc>
+                <mrktTotAmt>5140149000000</mrktTotAmt>
+                <nPptTotAmt>5134273813526</nPptTotAmt>
+                <stLstgCnt>167650000</stLstgCnt>
+                <bssIdxIdxNm>코스피 200</bssIdxIdxNm>
+                <bssIdxClpr>306.49</bssIdxClpr>
+            </item>
+        </items>
+    </body>
+</response>
+
+
+2) ETN시세 상세기능명세
+a) 상세기능정보
+상세기능 번호
+2
+상세기능 유형
+조회 (목록)
+상세기능명(국문)
+ETN시세
+상세기능 설명
+한국거래소에서 제공하는 증권상품의 시세 정보 ETF 종목별 시세, ETN 종목별 시세, ELW 종목별 시세 대한 오퍼레이션을 제공한다.
+Call Back URL
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getETNPriceInfo
+최대 메시지 사이즈
+[4000] byte
+평균 응답 시간
+[500] ms
+초당 최대 트랙잭션
+[30] tps
+b) 요청 메시지 명세 
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+serviceKey
+서비스키
+400
+1
+공공데이터포털에서 받은 인증키
+공공데이터포털에서 받은 인증키
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+resultType
+결과 형식
+4
+1
+xml
+구분(xml, json) Default: xml
+basDt
+기준일자
+4
+0
+20220919
+검색값과 기준일자가 일치하는 데이터를 검색
+beginBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 크거나 같은 데이터를 검색
+endBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 작은 데이터를 검색
+likeBasDt
+기준일자
+8
+0
+20220919
+기준일자값이 검색값을 포함하는 데이터를 검색
+likeSrtnCd
+단축코드
+8
+0
+500053
+단축코드가 검색값을 포함하는 데이터를 검색
+isinCd
+ISIN코드
+12
+0
+KRG500000531
+검색값과 ISIN코드이 일치하는 데이터를 검색
+likeIsinCd
+ISIN코드
+12
+0
+KRG500000531
+ISIN코드가 검색값을 포함하는 데이터를 검색
+itmsNm
+종목명
+120
+0
+신한 레버리지 천연가스 선물 ETN
+검색값과 종목명이 일치하는 데이터를 검색
+likeItmsNm
+종목명
+120
+0
+신한 레버리지 천연가스 선물 ETN
+종목명이 검색값을 포함하는 데이터를 검색
+beginVs
+대비
+10
+0
+-3690
+대비가 검색값보다 크거나 같은 데이터를 검색
+endVs
+대비
+10
+0
+-3690
+대비가 검색값보다 작은 데이터를 검색
+beginFltRt
+등락률
+11
+0
+-16.1
+등락률이 검색값보다 크거나 같은 데이터를 검색
+endFltRt
+등락률
+11
+0
+-16.1
+등락률이 검색값보다 작은 데이터를 검색
+beginIndcVal
+지표가치 (IV)
+11
+0
+20046.66
+IV가 검색값보다 크거나 같은 데이터를 검색
+endIndcVal
+지표가치 (IV)
+11
+0
+20046.6
+IV가 검색값보다 작은 데이터를 검색
+beginTrqu
+거래량
+12
+0
+355504
+거래량이 검색값보다 크거나 같은 데이터를 검색
+endTrqu
+거래량
+12
+0
+355504
+거래량이 검색값보다 작은 데이터를 검색
+beginTrPrc
+거래대금
+21
+0
+6883164645
+거래대금이 검색값보다 크거나 같은 데이터를 검색
+endTrPrc
+거래대금
+21
+0
+6883164645
+거래대금이 검색값보다 작은 데이터를 검색
+beginMrktTotAmt
+시가총액
+21
+0
+192350000000
+시가총액이 검색값보다 크거나 같은 데이터를 검색
+endMrktTotAmt
+시가총액
+21
+0
+192350000000
+시가총액이 검색값보다 작은 데이터를 검색
+bssIdxIdxNm
+기초지수_지수명
+240
+0
+DJCI Natural Gas 2X Leveraged TR
+검색값과 기초지수_지수명이 일치하는 데이터를 검색
+likeBssIdxIdxNm
+기초지수_지수명
+240
+0
+DJCI Natural Gas 2X Leveraged TR
+기초지수_지수명이 검색값을 포함하는 데이터를 검색
+※ 항목구분 : 필수(1), 옵션(0) 
+c) 응답 메시지 명세
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+resultCode
+결과코드
+2
+1
+00
+API 호출 결과의 상태 코드
+resultMsg
+결과메시지
+50
+1
+NORMAL SERVICE.
+API 호출 결과의 상태
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+totalCount
+전체 결과 수
+10
+1
+149057
+전체 결과 수
+fltRt
+등락률
+9
+0
+-16.1
+전일 대비 등락에 따른 비율
+indcValTotAmt
+지표가치총액
+12
+0
+200466600000
+ETN의 지표가치총액
+lstgScrtCnt
+상장증권수
+120
+0
+10000000
+ETN의 상장증권수
+bssIdxIdxNm
+기초지수_지수명
+12
+0
+DJCI Natural Gas 2X Leveraged TR
+ETN의 기초지수의 명칭
+bssIdxClpr
+기초지수_종가
+10
+0
+85.85
+ETN의 기초지수의 종가
+srtnCd
+단축코드
+8
+0
+500053
+종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
+isinCd
+ISIN코드
+11
+0
+KRG500000531
+국제 채권 식별 번호. 유가증권(채권)의 국제인증 고유번호
+itmsNm
+종목명
+12
+0
+신한 레버리지 천연가스 선물 ETN
+유가증권 국제인증 고유번호 코드 이름
+clpr
+종가
+12
+0
+19235
+정규시장의 매매시간종료시까지 형성되는 최종가격
+vs
+대비
+12
+0
+-3690
+전일 대비 등락
+basDt
+기준일자
+12
+0
+20220919
+YYYYMMDD 기준일자
+indcVal
+지표가치 (IV)
+21
+0
+20046.66
+지표가치총액 / 상장증권수
+mkp
+시가
+21
+0
+19325
+정규시장의 매매시간개시후 형성되는 최초가격
+hipr
+고가
+11
+0
+19565
+하루 중 가격의 최고치
+lopr
+저가
+21
+0
+19110
+하루 중 가격의 최저치
+trqu
+거래량
+15
+0
+355504
+체결수량의 누적 합계
+trPrc
+거래대금
+240
+0
+6883164645
+거래건 별 체결가격 * 체결수량의 누적 합계
+mrktTotAmt
+시가총액
+12
+0
+192350000000
+종가 * 상장증권수
+※ 항목구분 : 필수(1), 옵션(0)
+
+d) 요청/응답 메시지 예제
+요청메시지
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getETNPriceInfo?serviceKey=인증키&numOfRows=1&pageNo=1&resultType=xml
+응답메시지
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <header>
+        <resultCode>00</resultCode>
+        <resultMsg>NORMAL SERVICE.</resultMsg>
+    </header>
+    <body>
+        <numOfRows>1</numOfRows>
+        <pageNo>1</pageNo>
+        <totalCount>149057</totalCount>
+        <items>
+            <item>
+                <basDt>20220919</basDt>
+                <srtnCd>500053</srtnCd>
+                <isinCd>KRG500000531</isinCd>
+                <itmsNm>신한 레버리지 천연가스 선물 ETN</itmsNm>
+                <clpr>19235</clpr>
+                <vs>-3690</vs>
+                <fltRt>-16.1</fltRt>
+                <indcVal>20046.66</indcVal>
+                <mkp>19325</mkp>
+                <hipr>19565</hipr>
+                <lopr>19110</lopr>
+                <trqu>355504</trqu>
+                <trPrc>6883164645</trPrc>
+                <mrktTotAmt>192350000000</mrktTotAmt>
+                <indcValTotAmt>200466600000</indcValTotAmt>
+                <lstgScrtCnt>10000000</lstgScrtCnt>
+                <bssIdxIdxNm>DJCI Natural Gas 2X Leveraged TR</bssIdxIdxNm>
+                <bssIdxClpr>85.85</bssIdxClpr>
+            </item>
+        </items>
+    </body>
+</response>
+
+3) ELW시세 상세기능명세
+a) 상세기능정보
+상세기능 번호
+3
+상세기능 유형
+조회 (목록)
+상세기능명(국문)
+ELW시세
+상세기능 설명
+한국거래소에서 제공하는 증권상품의 시세 정보 ETF 종목별 시세, ETN 종목별 시세, ELW 종목별 시세 대한 오퍼레이션을 제공한다.
+Call Back URL
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getELWPriceInfo
+최대 메시지 사이즈
+[4000] byte
+평균 응답 시간
+[500] ms
+초당 최대 트랙잭션
+[30] tps
+b) 요청 메시지 명세 
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+serviceKey
+서비스키
+400
+1
+공공데이터포털에서 받은 인증키
+공공데이터포털에서 받은 인증키
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+resultType
+결과 형식
+4
+1
+xml
+구분(xml, json) Default: xml
+basDt
+기준일자
+8
+0
+20220919
+검색값과 기준일자가 일치하는 데이터를 검색
+beginBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 크거나 같은 데이터를 검색
+endBasDt
+기준일자
+8
+0
+20220919
+기준일자가 검색값보다 작은 데이터를 검색
+likeBasDt
+기준일자
+8
+0
+20220919
+기준일자값이 검색값을 포함하는 데이터를 검색
+likeSrtnCd
+단축코드
+9
+0
+50H501
+단축코드가 검색값을 포함하는 데이터를 검색
+isinCd
+ISIN코드
+12
+0
+KRA501101C61
+검색값과 ISIN코드가 일치하는 데이터를 검색
+likeIsinCd
+ISIN코드
+12
+0
+KRA501101C62
+ISIN코드가 검색값을 포함하는 데이터를 검색
+itmsNm
+종목명
+120
+0
+신한H501삼성전자콜
+검색값과 종목명이 일치하는 데이터를 검색
+likeItmsNm
+종목명
+120
+0
+신한H502삼성전자콜
+종목명이 검색값을 포함하는 데이터를 검색
+beginVs
+대비
+10
+0
+0
+대비가 검색값보다 크거나 같은 데이터를 검색
+endVs
+대비
+10
+0
+0
+대비가 검색값보다 작은 데이터를 검색
+beginTrqu
+거래량
+12
+0
+0
+거래량이 검색값보다 크거나 같은 데이터를 검색
+endTrqu
+거래량
+12
+0
+0
+거래량이 검색값보다 작은 데이터를 검색
+beginTrPrc
+거래대금
+21
+0
+0
+거래대금이 검색값보다 크거나 같은 데이터를 검색
+endTrPrc
+거래대금
+21
+0
+0
+거래대금이 검색값보다 작은 데이터를 검색
+beginMrktTotAmt
+시가총액
+21
+0
+435000000
+시가총액이 검색값보다 크거나 같은 데이터를 검색
+endMrktTotAmt
+시가총액
+21
+0
+435000000
+시가총액이 검색값보다 작은 데이터를 검색
+udasAstNm
+기초자산_자산명
+240
+0
+삼성전자
+검색값과 기초지수_자산명이 일치하는 데이터를 검색
+likeUdasAstNm
+기초자산_자산명
+240
+0
+삼성전자
+기초지수_자산명이 검색값을 포함하는 데이터를 검색
+※ 항목구분 : 필수(1), 옵션(0) 
+c) 응답 메시지 명세
+항목명(영문)
+항목명(국문)
+항목크기
+항목구분
+샘플데이터
+항목설명
+resultCode
+결과코드
+2
+1
+00
+API 호출 결과의 상태 코드
+resultMsg
+결과메시지
+50
+1
+NORMAL SERVICE.
+API 호출 결과의 상태
+numOfRows
+한 페이지 결과 수
+4
+1
+1
+한 페이지 결과 수
+pageNo
+페이지 번호
+4
+1
+1
+페이지 번호
+totalCount
+전체 결과 수
+10
+1
+2388305
+전체 결과 수
+basDt
+기준일자
+8
+0
+20220919
+YYYYMMDD 기준일자
+srtnCd
+단축코드
+9
+0
+50H501
+종목 코드보다 짧으면서 유일성이 보장되는 코드(6자리)
+isinCd
+ISIN코드
+12
+0
+KRA501101C61
+국제 채권 식별번호. 유가증권(채권)의 국제인증 고유번호
+itmsNm
+종목명
+120
+0
+신한H501삼성전자콜
+유가증권 국제인증 고유번호 코드 이름
+clpr
+종가
+12
+0
+10
+정규시장의 매매시간종료시까지 형성되는 최종가격
+vs
+대비
+10
+0
+0
+전일 대비 등락
+mkp
+시가
+12
+0
+0
+정규시장의 매매시간개시후 형성되는 최초가격
+hipr
+고가
+12
+0
+0
+하루 중 가격의 최고치
+lopr
+저가
+12
+0
+0
+하루 중 가격의 최저치
+trqu
+거래량
+12
+0
+0
+체결수량의 누적 합계
+trPrc
+거래대금
+21
+0
+0
+거래건 별 체결가격 * 체결수량의 누적 합계
+mrktTotAmt
+시가총액
+21
+0
+435000000
+종가 * 상장증권수
+lstgScrtCnt
+상장증권수
+15
+0
+43500000
+ELW의 상장증권수
+udasAstNm
+기초자산_자산명
+240
+0
+삼성전자
+ELW의 기초자산의 명칭
+udasAstClpr
+기초자산_종가
+12
+0
+56400
+ELW의 기초자산의 종가
+※ 항목구분 : 필수(1), 옵션(0)
+d) 요청/응답 메시지 예제
+요청메시지
+https://apis.data.go.kr/1160100/service/GetSecuritiesProductInfoService/getELWPriceInfo?serviceKey=인증키&numOfRows=1&pageNo=1
+응답메시지
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+    <header>
+        <resultCode>00</resultCode>
+        <resultMsg>NORMAL SERVICE.</resultMsg>
+    </header>
+    <body>
+        <numOfRows>1</numOfRows>
+        <pageNo>1</pageNo>
+        <totalCount>2388305</totalCount>
+        <items>
+            <item>
+                <basDt>20220919</basDt>
+                <srtnCd>50H501</srtnCd>
+                <isinCd>KRA501101C61</isinCd>
+                <itmsNm>신한H501삼성전자콜</itmsNm>
+                <clpr>10</clpr>
+                <vs>0</vs>
+                <mkp>0</mkp>
+                <hipr>0</hipr>
+                <lopr>0</lopr>
+                <trqu>0</trqu>
+                <trPrc>0</trPrc>
+                <mrktTotAmt>435000000</mrktTotAmt>
+                <lstgScrtCnt>43500000</lstgScrtCnt>
+                <udasAstNm>삼성전자</udasAstNm>
+                <udasAstClpr>56400</udasAstClpr>
+            </item>
+        </items>
+    </body>
+</response>
+2. OpenAPI 에러 코드정리
+에러코드
+에러메시지
+설명
+1
+APPLICATION_ERROR
+어플리케이션 에러
+10
+INVALID_REQUEST_PARAMETER_ERROR
+잘못된 요청 파라메터 에러
+12
+NO_OPENAPI_SERVICE_ERROR
+해당 오픈API서비스가 없거나 폐기됨
+20
+SERVICE_ACCESS_DENIED_ERROR
+서비스 접근거부
+22
+LIMITED_NUMBER_OF_SERVICE_REQUESTS_EXCEEDS_ERROR
+서비스 요청제한횟수 초과에러
+30
+SERVICE_KEY_IS_NOT_REGISTERED_ERROR
+등록되지 않은 서비스키
+31
+DEADLINE_HAS_EXPIRED_ERROR
+기한 만료된 서비스키
+32
+UNREGISTERED_IP_ERROR
+등록되지 않은 IP
+99
+UNKNOWN_ERROR
+기타에러
+
