@@ -2,9 +2,20 @@
 
 import { Button, Text, Spacing } from '@/app/components/tds-custom';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 bg-white">
+      <div className="relative w-48 h-48 mb-6 animate-fade-in-up">
+        <Image
+          src="/main-hero.png"
+          alt="MoneyTI Hero"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
       <Text typography="t1" fontWeight={700} color="gray900">
         MoneyTI
       </Text>
