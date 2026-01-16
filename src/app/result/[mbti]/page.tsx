@@ -50,17 +50,42 @@ export default function ResultPage() {
             <div className="flex flex-col items-center p-6 text-center">
                 <Spacing size={40} />
 
+                <div className="relative w-40 h-40 mb-4 animate-fade-in-up">
+                    <img
+                        src={`/mbti/${mbti}.png`}
+                        alt={mbti}
+                        className="object-contain w-full h-full"
+                    />
+                </div>
+
+                {/* Group Badge */}
+                <span className={`px-3 py-1 rounded-full text-sm font-bold mb-3 ${persona.group === 'Analyst' ? 'bg-purple-100 text-purple-700' :
+                        persona.group === 'Diplomat' ? 'bg-green-100 text-green-700' :
+                            persona.group === 'Sentinel' ? 'bg-blue-100 text-blue-700' :
+                                'bg-yellow-100 text-yellow-700'
+                    }`}>
+                    {persona.group}
+                </span>
+
                 <Text typography="t5" color="gray500">
                     당신의 투자 성향은...
                 </Text>
                 <Spacing size={8} />
-                <Text typography="h2" color="gray900" fontWeight={700}>
+                <Text
+                    typography="h2"
+                    fontWeight={700}
+                    className={persona.color} // Dynamic Color Application
+                >
                     {persona.name}
                 </Text>
 
                 <Spacing size={24} />
 
-                <div className="bg-gray-100 p-6 rounded-2xl w-full">
+                <div className={`p-6 rounded-2xl w-full border ${persona.group === 'Analyst' ? 'bg-purple-50 border-purple-100' :
+                        persona.group === 'Diplomat' ? 'bg-green-50 border-green-100' :
+                            persona.group === 'Sentinel' ? 'bg-blue-50 border-blue-100' :
+                                'bg-yellow-50 border-yellow-100'
+                    }`}>
                     <Text typography="t5" color="gray700" style={{ wordBreak: 'keep-all' }}>
                         {persona.desc}
                     </Text>

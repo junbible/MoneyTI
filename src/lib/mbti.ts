@@ -9,6 +9,8 @@ export interface Persona {
         ticker: string;
         reason: string;
     }[];
+    group: 'Analyst' | 'Diplomat' | 'Sentinel' | 'Explorer';
+    color: string;
 }
 
 export const MBTI_MAPPING: Record<MBTI, Persona> = {
@@ -21,7 +23,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 최고의 기술 기업에 집중 투자" },
             { ticker: '133690', reason: "TIGER 미국나스닥100: 글로벌 혁신 기업의 성장성" },
             { ticker: '091160', reason: "KODEX 반도체: 4차 산업혁명의 핵심 소재" }
-        ]
+        ],
+        group: 'Analyst',
+        color: 'text-purple-600'
     },
     'INTP': {
         mbti: 'INTP',
@@ -31,7 +35,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 논리적으로 검증된 빅테크" },
             { ticker: '102110', reason: "TIGER 200: 시장 수익률을 추종하는 합리적 선택" },
             { ticker: '360750', reason: "TIGER 미국S&P500: 전 세계 1등 시장에 투자" }
-        ]
+        ],
+        group: 'Analyst',
+        color: 'text-purple-600'
     },
     'ENTJ': {
         mbti: 'ENTJ',
@@ -41,7 +47,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '122630', reason: "KODEX 레버리지: 상승장에서 극대화된 수익 추구" },
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 시장을 이끄는 리더 기업" },
             { ticker: '233740', reason: "KODEX 코스닥150레버리지: 성장주의 폭발력" }
-        ]
+        ],
+        group: 'Analyst',
+        color: 'text-purple-600'
     },
     'ENTP': {
         mbti: 'ENTP',
@@ -51,7 +59,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '233740', reason: "KODEX 코스닥150레버리지: 높은 변동성은 곧 기회" },
             { ticker: '229200', reason: "KODEX 코스닥150: 한국의 혁신 성장 기업들" },
             { ticker: '133690', reason: "TIGER 미국나스닥100: 멈추지 않는 혁신" }
-        ]
+        ],
+        group: 'Analyst',
+        color: 'text-purple-600'
     },
 
     // 2. 외교관형 (NF) - 가치, 의미, 사람, 이상
@@ -63,7 +73,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '305540', reason: "TIGER 2차전지테마: 친환경 에너지의 미래" },
             { ticker: '069500', reason: "KODEX 200: 한국 경제를 지탱하는 대표 기업" },
             { ticker: '360750', reason: "TIGER 미국S&P500: 다양성과 안정성의 조화" }
-        ]
+        ],
+        group: 'Diplomat',
+        color: 'text-green-600'
     },
     'INFP': {
         mbti: 'INFP',
@@ -73,7 +85,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '102780', reason: "KODEX 삼성그룹: 한국의 대표 브랜드 가치" },
             { ticker: '305540', reason: "TIGER 2차전지테마: 지속 가능한 미래를 위한 투자" },
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 세상을 바꾸는 혁신" }
-        ]
+        ],
+        group: 'Diplomat',
+        color: 'text-green-600'
     },
     'ENFJ': {
         mbti: 'ENFJ',
@@ -83,7 +97,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '069500', reason: "KODEX 200: 모두가 함께 성장하는 시장" },
             { ticker: '360750', reason: "TIGER 미국S&P500: 글로벌 스탠다드" },
             { ticker: '139260', reason: "KODEX 고배당: 이익을 주주와 나누는 기쁨" }
-        ]
+        ],
+        group: 'Diplomat',
+        color: 'text-green-600'
     },
     'ENFP': {
         mbti: 'ENFP',
@@ -93,7 +109,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '233740', reason: "KODEX 코스닥150레버리지: 지루할 틈 없는 시장" },
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 흥미진진한 기술의 발전" },
             { ticker: '251340', reason: "KODEX 코스닥150선물인버스: 하락장에서도 기회를" }
-        ]
+        ],
+        group: 'Diplomat',
+        color: 'text-green-600'
     },
 
     // 3. 관리자형 (SJ) - 규범, 질서, 안정, 현실
@@ -105,7 +123,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '069500', reason: "KODEX 200: 가장 신뢰할 수 있는 시장 지표" },
             { ticker: '360750', reason: "TIGER 미국S&P500: 역사적으로 검증된 우상향" },
             { ticker: '278530', reason: "KODEX 200TR: 배당 재투자로 복리 효과" }
-        ]
+        ],
+        group: 'Sentinel',
+        color: 'text-blue-600'
     },
     'ISFJ': {
         mbti: 'ISFJ',
@@ -115,7 +135,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '153130', reason: "KODEX 단기채권: 절대 잃지 않는 안전함" },
             { ticker: '069500', reason: "KODEX 200: 마음 편한 인덱스 투자" },
             { ticker: '139260', reason: "KODEX 고배당: 따박따박 들어오는 현금 흐름" }
-        ]
+        ],
+        group: 'Sentinel',
+        color: 'text-blue-600'
     },
     'ESTJ': {
         mbti: 'ESTJ',
@@ -125,7 +147,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '069500', reason: "KODEX 200: 시장의 표준" },
             { ticker: '102110', reason: "TIGER 200: 효율적인 수수료와 관리" },
             { ticker: '278530', reason: "KODEX 200TR: 세금과 비용까지 고려한 선택" }
-        ]
+        ],
+        group: 'Sentinel',
+        color: 'text-blue-600'
     },
     'ESFJ': {
         mbti: 'ESFJ',
@@ -135,7 +159,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '139260', reason: "KODEX 고배당: 가족과 함께 누리는 배당금" },
             { ticker: '069500', reason: "KODEX 200: 누구나 아는 대표 기업" },
             { ticker: '360750', reason: "TIGER 미국S&P500: 은퇴 자금을 위한 정석" }
-        ]
+        ],
+        group: 'Sentinel',
+        color: 'text-blue-600'
     },
 
     // 4. 탐험가형 (SP) - 감각, 적응, 체험, 순발력
@@ -147,7 +173,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '233740', reason: "KODEX 코스닥150레버리지: 타이밍의 예술" },
             { ticker: '122630', reason: "KODEX 레버리지: 단기 변동성 활용" },
             { ticker: '091160', reason: "KODEX 반도체: 산업 사이클을 읽는 눈" }
-        ]
+        ],
+        group: 'Explorer',
+        color: 'text-yellow-500'
     },
     'ISFP': {
         mbti: 'ISFP',
@@ -157,7 +185,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 세련된 글로벌 브랜드" },
             { ticker: '133690', reason: "TIGER 미국나스닥100: 힙한 기술 기업들" },
             { ticker: '102780', reason: "KODEX 삼성그룹: 한국 최고의 네임밸류" }
-        ]
+        ],
+        group: 'Explorer',
+        color: 'text-yellow-500'
     },
     'ESTP': {
         mbti: 'ESTP',
@@ -167,7 +197,9 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '233740', reason: "KODEX 코스닥150레버리지: 승부사의 선택" },
             { ticker: '122630', reason: "KODEX 레버리지: 확실한 구간에서 베팅" },
             { ticker: '252670', reason: "KODEX 200선물인버스2X: 하락장도 수익 기회로" }
-        ]
+        ],
+        group: 'Explorer',
+        color: 'text-yellow-500'
     },
     'ESFP': {
         mbti: 'ESFP',
@@ -177,6 +209,8 @@ export const MBTI_MAPPING: Record<MBTI, Persona> = {
             { ticker: '379800', reason: "KODEX 미국테크TOP10: 요즘 가장 핫한 주식" },
             { ticker: '229200', reason: "KODEX 코스닥150: 다이내믹한 한국 시장" },
             { ticker: '305540', reason: "TIGER 2차전지테마: 뉴스에 매일 나오는 그 종목" }
-        ]
+        ],
+        group: 'Explorer',
+        color: 'text-yellow-500'
     }
 };
