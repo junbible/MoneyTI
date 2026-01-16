@@ -54,15 +54,22 @@ export default function ResultPage() {
                     <img
                         src={`/mbti/${mbti}.png`}
                         alt={mbti}
-                        className="object-contain w-full h-full"
+                        className="object-contain w-full h-full transition-all duration-500"
+                        style={{
+                            filter:
+                                persona.group === 'Analyst' ? 'hue-rotate(20deg) saturate(1.2)' : // Blue -> Purple
+                                    persona.group === 'Diplomat' ? 'hue-rotate(-50deg) saturate(1.1) brightness(1.1)' : // Blue -> Teal/Green
+                                        persona.group === 'Explorer' ? 'hue-rotate(170deg) saturate(1.5) brightness(1.1)' : // Blue -> Yellow/Orange
+                                            'none' // Sentinel (Blue) - Keep Original
+                        }}
                     />
                 </div>
 
                 {/* Group Badge */}
                 <span className={`px-3 py-1 rounded-full text-sm font-bold mb-3 ${persona.group === 'Analyst' ? 'bg-purple-100 text-purple-700' :
-                        persona.group === 'Diplomat' ? 'bg-green-100 text-green-700' :
-                            persona.group === 'Sentinel' ? 'bg-blue-100 text-blue-700' :
-                                'bg-yellow-100 text-yellow-700'
+                    persona.group === 'Diplomat' ? 'bg-green-100 text-green-700' :
+                        persona.group === 'Sentinel' ? 'bg-blue-100 text-blue-700' :
+                            'bg-yellow-100 text-yellow-700'
                     }`}>
                     {persona.group}
                 </span>
@@ -82,9 +89,9 @@ export default function ResultPage() {
                 <Spacing size={24} />
 
                 <div className={`p-6 rounded-2xl w-full border ${persona.group === 'Analyst' ? 'bg-purple-50 border-purple-100' :
-                        persona.group === 'Diplomat' ? 'bg-green-50 border-green-100' :
-                            persona.group === 'Sentinel' ? 'bg-blue-50 border-blue-100' :
-                                'bg-yellow-50 border-yellow-100'
+                    persona.group === 'Diplomat' ? 'bg-green-50 border-green-100' :
+                        persona.group === 'Sentinel' ? 'bg-blue-50 border-blue-100' :
+                            'bg-yellow-50 border-yellow-100'
                     }`}>
                     <Text typography="t5" color="gray700" style={{ wordBreak: 'keep-all' }}>
                         {persona.desc}
