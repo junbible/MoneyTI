@@ -65,14 +65,25 @@ export default function ResultPage() {
                     />
                 </div>
 
-                {/* Group Badge */}
-                <span className={`px-3 py-1 rounded-full text-sm font-bold mb-3 ${persona.group === 'Analyst' ? 'bg-purple-100 text-purple-700' :
-                    persona.group === 'Diplomat' ? 'bg-green-100 text-green-700' :
-                        persona.group === 'Sentinel' ? 'bg-blue-100 text-blue-700' :
-                            'bg-yellow-100 text-yellow-700'
-                    }`}>
-                    {persona.group}
-                </span>
+                <div className="flex gap-2 mb-3 animate-fade-in-up delay-100">
+                    {/* MBTI Code Badge */}
+                    <span className={`px-3 py-1 rounded-full text-sm font-bold border ${persona.group === 'Analyst' ? 'bg-purple-100 text-purple-700 border-purple-200' :
+                            persona.group === 'Diplomat' ? 'bg-green-100 text-green-700 border-green-200' :
+                                persona.group === 'Explorer' ? 'bg-yellow-100 text-yellow-700 border-yellow-200' :
+                                    'bg-blue-100 text-blue-700 border-blue-200'
+                        }`}>
+                        {mbti}
+                    </span>
+
+                    {/* Group Badge */}
+                    <span className={`px-3 py-1 rounded-full text-sm font-bold border ${persona.group === 'Analyst' ? 'bg-purple-50 text-purple-600 border-purple-100' :
+                            persona.group === 'Diplomat' ? 'bg-green-50 text-green-600 border-green-100' :
+                                persona.group === 'Explorer' ? 'bg-yellow-50 text-yellow-600 border-yellow-100' :
+                                    'bg-blue-50 text-blue-600 border-blue-100'
+                        }`}>
+                        {persona.group}
+                    </span>
+                </div>
 
                 <Text typography="t5" color="gray500">
                     당신의 투자 성향은...
